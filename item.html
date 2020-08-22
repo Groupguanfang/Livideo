@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+<meta name="theme-color" content="#0065e9">
+<title>正在播放 - {{title}}</title>
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile.min.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/item.css">
+</head>
+<body class="body" style="width: 100%;">
+<!-- 自定义解析接口[去掉注释使用i标签依次罗列即可,此处定义优先于common.js的定义] -->
+<div style="display:none" id="jsApiList">
+	<i>https://jx.htv009.com/?url=</i>
+	<i>https://jx.7kjx.com/?url=</i>
+	<i>https://z1.m1907.cn/jx.html</i>
+        <i>http://m.199cn.cn/jiekou/jx.html?url=</i>
+        <i>https://www.yaosou.cc/jiexi2/?url=</i>
+        <i>http://123dan.top/fe/gs?url=</i>
+        <i>http://api.xdiaosi.com/?url=</i>
+	<i>https://jx.yingxiangbao.cn/vip.php?url=</i>
+	<i>https://www.8090g.cn/jiexi/?url=</i>
+	<i>http://api.ikancloud.cn/?url=</i>
+	<i>https://jx.wzslw.cn/?url=</i>
+	<i>http://www.playm3u8.cn/jiexi.php?url=</i>
+	<i>http://www.ckplayer.vip/jiexi/?url=</i>
+	<i>http://api.jiexi.la/?url=</i>
+	<i>http://www.pangujiexi.cc/jiexi.php?url=</i>
+	<i>http://www.kpezp.cn/jlexi.php?url=</i>
+	<i>http://api.xdiaosi.com/?url=</i>
+	<i>http://www.h8jx.com/jiexi.php?url=</i>
+	<i>http://api.jiexi.la/?url=</i>
+	<i>https://api.52jiexi.top/?url=</i>
+</div>
+
+<div class="header one">
+	<a class="logo" href="index.html"><img src="images/logo.png" /></a>
+	<div class="search">
+		<a id="searchDo">全网搜索</a>
+		<input type="text" placeholder="输入你想看的" id="search" />
+	</div>
+	<div style="clear: both;"></div>
+</div>
+
+<div class="loading" id="loadBox">
+	<span class="s-loading"><i class="first"></i><i class="second"></i><i class="third"></i></span>
+</div>
+<div style="clear: both;"></div>
+<div id="dataBox" style="display:none">
+
+	<div id="playBox">
+
+		<div class="play-box" id="playBoxIframe">
+			<div class="tip">如无法播放请尝试切换线路，或<a href="">点击前往<span></span>播放</a><i class="close"></i></div>
+		</div>
+
+		<div class="clear" style="height:0.3rem"></div>
+
+		<h3 class="from-title" id="titleItem"></h3>
+		<div class="from" id="fromList" style="display:none">
+			<div class="template"><a data-api="{{api}}" data-href="{{href}}" data-hasmore="{{hasmore}}" data-site="{{site}}">线路{{number}}</a></div>
+			<span class="clear"></span>
+		</div>
+
+		<div class="loading" id="loadBox2">
+			<span class="s-loading"><i class="first"></i><i class="second"></i><i class="third"></i></span>
+		</div>
+
+		<div class="episodes" id="episodesBox" style="display:none;">
+			<div class="clear" style="height:0.3rem"></div>
+			<h3 class="episodes-title">选集</h3>
+			<div id="episodesList">
+				<div class="template"><a data-api="{{api}}" data-href="{{href}}">{{number}}</a></div>
+				<span class="clear"></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="no-data" id="noDataBox" style="display:none">未找到可用播放线路</div>
+
+	<div class="clear" style="height:2rem"></div>
+
+	<div id="itemList" style="display:none">
+		<div class="template">
+			<div class="more">
+				<i style="background-image:url({{pic}})"></i>
+				<h5>{{title}}</h5>
+				{{item}}
+			</div>
+			<div class="more desc">
+				<div>简介：{{desc}}</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="clear" style="height:3rem"></div>
+
+	<div class="copyright">
+		<p>本站内容均来自于互联网资源实时抓取</p>
+		<p>本源码仅用做学习交流</p>
+	</div>
+
+</div>
+
+<a class="scroll-to-top" id="scrollToTop"></a>
+</body>
+</html>
+<script src="js/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/item.js"></script>
+<script src="js/autosize.js"></script>
+<script>
+	window.onload = function () {
+		setSize();
+	};
+	$(window).resize(function () {
+		setSize();
+	});
+</script>
